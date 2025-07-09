@@ -43,10 +43,24 @@
             android:inputType="textPassword"
             android:paddingBottom="20dp" />
 
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@mipmap/logobanco"
+            android:layout_gravity="center"
+            tools:ignore="ContentDescription"
+            android:paddingBottom="10dp" />
+
         <Button
             android:id="@+id/btnIngresar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/regresar" />
+        <Button
+            android:id="@+id/btnSalir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/salir" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
