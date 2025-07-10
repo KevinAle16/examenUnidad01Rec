@@ -43,6 +43,7 @@ class CalculadoraActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("StringFormatInvalid")
     fun iniciarComponentes() {
         calculadora = calculadora()
 
@@ -61,27 +62,27 @@ class CalculadoraActivity : AppCompatActivity() {
         btnRegresar = findViewById(R.id.btnRegresar)
 
         val usuario = intent.getStringExtra("usuario")
-        lblUsuario.text = "usuario: $usuario"
+        lblUsuario.text = getString(R.string.user, usuario)
     }
     fun eventosClic() {
         btnSuma.setOnClickListener {
             if (obtenerDatos()) {
                 val resultado = calculadora.suma()
-                lblResultado.text = "Resultado: ${resultado}"
+                lblResultado.text =  getString(R.string.resultado_mostrar, resultado)
             }
         }
 
         btnResta.setOnClickListener {
             if (obtenerDatos()) {
                 val resultado = calculadora.resta()
-                lblResultado.text = "Resultado: ${resultado}"
+                lblResultado.text = getString(R.string.resultado_mostrar, resultado)
             }
         }
 
         btnMultiplicacion.setOnClickListener {
             if (obtenerDatos()) {
                 val resultado = calculadora.multiplicacion()
-                lblResultado.text = "Resultado: ${resultado}"
+                lblResultado.text =  getString(R.string.resultado_mostrar, resultado)
             }
         }
 
@@ -89,9 +90,9 @@ class CalculadoraActivity : AppCompatActivity() {
             if (obtenerDatos()) {
                 val resultado = calculadora.division()
                 lblResultado.text = if (resultado.isNaN()) {
-                    "División por cero"
+                    getString(R.string.division_cero)
                 } else {
-                    "Resultado: ${resultado}"
+                    getString(R.string.resultado_mostrar, resultado)
                 }
             }
         }
@@ -112,7 +113,7 @@ class CalculadoraActivity : AppCompatActivity() {
         val num2Text = txtNum2.text.toString()
 
         if (num1Text.isEmpty() || num2Text.isEmpty()) {
-            Toast.makeText(this, "Por favor introduce ambos números", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.msg_ingresa_numeros), Toast.LENGTH_SHORT).show()
             return false
         }
 
